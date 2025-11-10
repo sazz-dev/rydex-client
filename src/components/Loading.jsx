@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Navbar = () => {
+const Loading = () => {
     return (
         <div>
-            
+            <p>Loading....</p>
         </div>
     );
 };
 
-export default Navbar;
+export default Loading;

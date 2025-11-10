@@ -1,8 +1,8 @@
 # 🚗 **Rydex – Smart Vehicle Booking & Trip Management Platform**
 
-### 🔗 **Live Website:** [https://rydex.netlify.app](https://rydex.netlify.app)  
-### 💾 **Client GitHub Repo:** [https://github.com/yourusername/rydex-client](https://github.com/yourusername/rydex-client)  
-### ⚙️ **Server GitHub Repo:** [https://github.com/yourusername/rydex-server](https://github.com/yourusername/rydex-server)
+### 🔗 **Live Website:** [https://rydex.pages.dev/](https://rydex.pages.dev/)  
+### 💾 **Client GitHub Repo:** [https://github.com/sazz-dev/rydex-client](https://github.com/sazz-dev/rydex-client)  
+### ⚙️ **Server GitHub Repo:** [https://github.com/sazz-dev/rydex-server](https://github.com/sazz-dev/rydex-server)
 
 ---
 

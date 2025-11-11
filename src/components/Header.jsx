@@ -208,7 +208,7 @@ const Header = () => {
           )}
 
           {open ? (
-            <div className=" bg-white overflow-y-hidden fixed z-10 top-0 left-0 w-screen min-h-screen flex justify-between items-center p-5 flex-col gap-10 duration-100 ease-in">
+            <div className=" bg-white dark:bg-[#11131E] overflow-y-hidden fixed z-10 top-0 left-0 w-screen min-h-screen flex justify-between items-center p-5 flex-col gap-10 duration-100 ease-in">
               <div className="w-full">
                 <Link to="/" className="flex items-center space-x-2">
                   <img

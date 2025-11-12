@@ -11,6 +11,7 @@ import MyBookings from "../pages/MyBookings";
 import MyVehicles from "../pages/MyVehicles";
 import VehiclesDetails from "../pages/VehiclesDetails";
 import PrivateRoute from "../provider/PrivateRoute";
+import Error from "../pages/Error";
 
 const router = createBrowserRouter([
   {
@@ -27,19 +28,39 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-vehicle",
-        element:  <PrivateRoute><AddVehicle /></PrivateRoute> ,
+        element: (
+          <PrivateRoute>
+            <AddVehicle />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/vehicle-details",
-        element: <PrivateRoute><VehiclesDetails /></PrivateRoute> ,
+        element: (
+          <PrivateRoute>
+            <VehiclesDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-bookings",
-        element: <PrivateRoute><MyBookings /></PrivateRoute> ,
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-vehicles",
-        element: <PrivateRoute><MyVehicles /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <MyVehicles />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/*",
+        element: <Error />,
       },
     ],
   },

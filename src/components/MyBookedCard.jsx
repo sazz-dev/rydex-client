@@ -1,34 +1,25 @@
 import React from "react";
 import car from "../assets/car.webp";
-import whiteCar from "../assets/icons/white-car.svg";
 import Button from "./Button";
 import LocationIcon from "../assets/icons/LocationIcon";
 import { Link } from "react-router";
-const VehicleCard = () => {
+const MyBookedCard = () => {
   return (
     <Link to="/vehicle-details">
       <div
-        className="w-full gap-6 flex flex-col items-center rounded-3xl bg-white dark:bg-[#1D1F29] px-6 md:px-8 pt-8 pb-6
+        className="w-80 gap-6 flex flex-col justify-center items-center rounded-3xl bg-white dark:bg-[#1D1F29] px-6 md:px-8 pt-8 pb-6
       
       hover:shadow-[0_10px_40px_rgba(0,0,0,0.03)] 
       hover:-translate-y-2 hover:scale-[1.02] 
       transition-all duration-500 ease-in-out-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer"
       >
-        <div className="w-full flex  lg:gap-10 justify-between items-start">
-          {/* vechile Type */}
-          <div className="text-left">
-            <h6 className="text-xl font-medium dark:text-white">
-              Toyota Corolla
-            </h6>
-            <p className="text-lg font-light dark:text-[#ffffff88] text-[#0000006c]">
-              Sedan
-            </p>
-          </div>
-          {/* Status */}
-          <div className="flex px-4 bg-[#d18b0927] justify-center rounded-full py-2 items-center gap-2">
-            <div className="p-1.5 bg-[#D18B09] w-fit h-fit rounded-full"></div>
-            <p className="text-[#D18B09] font-medium">Booked</p>
-          </div>
+        <div className="text-center">
+          <h6 className="text-xl font-medium dark:text-white">
+            Toyota Corolla
+          </h6>
+          <p className="text-lg font-light dark:text-[#ffffff88] text-[#0000006c]">
+            Sedan
+          </p>
         </div>
         {/* Price */}
         <div className="flex gap-1 justify-center items-end">
@@ -47,16 +38,10 @@ const VehicleCard = () => {
             <LocationIcon className="w-5 h-5 text-[#141B34] dark:text-white" />
             <p className="dark:text-white text-[#141B34]">Dhaka, Bangladesh</p>
           </div>
-          <Link to="/vehicle-details" className="w-full">
-            <button className="flex w-full items-center justify-center text-white gap-3 px-8 rounded-full py-3  dark:bg-[#364154] bg-[#242424] dark:hover:bg-[#4A5565] cursor-pointer hover:bg-black ">
-              <img src={whiteCar} alt="" />
-              View Details
-            </button>
-          </Link>
         </div>
       </div>
     </Link>
   );
 };
 
-export default VehicleCard;
+export default MyBookedCard;

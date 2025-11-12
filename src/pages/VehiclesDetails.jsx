@@ -1,10 +1,28 @@
-import React from "react";
 import CarImg from "../assets/car.webp";
 import whiteCar from "../assets/icons/white-car.svg";
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
 
 const VehiclesDetails = () => {
-  const onBook = () => {
+  const data = useLoaderData();
+  const VehicleDetails = data.result;
+
+  const {
+    _id,
+    name,
+    categories,
+    description,
+    price,
+    image,
+    location,
+    availability,
+    created_by,
+    created_at,
+    ownerName,
+    ownerImage,
+  } = VehicleDetails;
+
+  const handleBook = () => {
     window.alert("Book clicked");
   };
 
@@ -17,7 +35,7 @@ const VehiclesDetails = () => {
         <div className="relative rounded-4xl bg-white dark:bg-[#0f1720] p-8  border border-transparent">
           {/* optional subtle notch top-left (decorative) */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 dark:text-white">
-            Toyota Corolla Hybrid 2024
+            {name}
           </h1>
 
           <div className="mt-4 flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-300">
@@ -43,7 +61,7 @@ const VehiclesDetails = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>Sedan</span>
+              <span>{categories}</span>
             </div>
 
             <div className="flex items-center gap-2">
@@ -62,7 +80,7 @@ const VehiclesDetails = () => {
                 />
                 <circle cx="12" cy="9" r="2" fill="currentColor" />
               </svg>
-              <span>Dhaka, Bangladesh</span>
+              <span>{location}</span>
             </div>
 
             <div className="flex items-center gap-2">
@@ -88,10 +106,8 @@ const VehiclesDetails = () => {
                 />
               </svg>
               <span>
-                Added on{" "}
-                <strong className="text-gray-900 dark:text-white">
-                  Nov 8, 2025
-                </strong>
+                Added on{created_at}
+                <strong className="text-gray-900 dark:text-white">{}</strong>
               </span>
             </div>
           </div>
@@ -105,10 +121,7 @@ const VehiclesDetails = () => {
               Vehicle Details
             </h3>
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              {" "}
-              This premium hybrid offers comfort, advanced GPS, and eco-friendly
-              performance perfect for long trips or daily commutes. Experience
-              smooth driving with hybrid efficiency and modern amenities.,
+              {description}
             </p>
           </div>
 
@@ -119,16 +132,16 @@ const VehiclesDetails = () => {
             </h4>
             <div className="flex items-center gap-4">
               <img
-                src={"Hi"}
+                src={ownerImage}
                 alt={""}
                 className="w-12 h-12 rounded-full object-cover ring-2 ring-white shadow"
               />
               <div>
                 <div className="font-medium text-gray-900 dark:text-white">
-                  Alex Carly
+                  {ownerName}
                 </div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">
-                  alex@gmail.com
+                  {created_by}
                 </div>
               </div>
             </div>
@@ -144,10 +157,10 @@ const VehiclesDetails = () => {
         <div className="flex flex-col items-end gap-8">
           <div className=" w-fit flex px-4 bg-[#d18b0927] justify-center rounded-full py-2 items-center gap-2">
             <div className="p-1.5 bg-[#D18B09] w-fit h-fit rounded-full"></div>
-            <p className="text-[#D18B09] font-medium">Booked</p>
+            <p className="text-[#D18B09] font-medium">{availability}</p>
           </div>
           <img
-            src={CarImg}
+            src={image}
             alt={""}
             className="w-full object-contain rounded-md max-h-60 mx-auto"
           />
@@ -159,14 +172,14 @@ const VehiclesDetails = () => {
           </h4>
           <div className="mt-2 flex items-baseline gap-3">
             <div className="text-3xl font-medium text-gray-900 dark:text-white">
-              $54
+              ${price}
             </div>
             <div className="text-gray-400 dark:text-gray-400 text-lg">/day</div>
           </div>
         </div>
 
         <button
-          onClick={onBook}
+          onClick={handleBook}
           className="flex w-full items-center justify-center text-white gap-3 px-8 rounded-full py-3  dark:bg-[#364154] bg-[#242424] dark:hover:bg-[#4A5565] cursor-pointer hover:bg-black "
         >
           <img src={whiteCar} alt="" />

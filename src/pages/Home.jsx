@@ -12,9 +12,10 @@ import ActionCard from "../components/ActionCard";
 import SubIcon from "../assets/icons/SubIcon";
 import ElectricIcon from "../components/ElectricIcon";
 import VanIcon from "../assets/icons/VanIcon";
-
+import { useLoaderData } from "react-router";
 
 const Home = () => {
+  const data = useLoaderData();
   return (
     <>
       {/* --------------- Hero Section --------------- */}
@@ -58,14 +59,9 @@ const Home = () => {
         </div>
         {/* --------------- Cards --------------- */}
         <div className="w-full grid grid-cols-1 md:px-20 lg:grid-cols-3  md:grid-cols-2 gap-3">
-          <VehicleCard />
-          <VehicleCard />
-          <VehicleCard />
-          <VehicleCard />
-          <VehicleCard />
-          <VehicleCard />
-          <VehicleCard />
-          <VehicleCard />
+          {data.map((vechicle) => (
+            <VehicleCard key={vechicle._id} vechicle={vechicle} />
+          ))}
         </div>
       </section>
       {/* --------------- Top Categories --------------- */}

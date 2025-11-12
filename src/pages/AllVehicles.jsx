@@ -1,9 +1,11 @@
 import React from "react";
 import Button from "../components/Button";
 import VehicleCard from "../components/VehicleCard";
-
+import { useLoaderData } from "react-router";
 
 const AllVehicles = () => {
+  const data = useLoaderData();
+
   return (
     <section className="px-4 container flex flex-col gap-12 py-10 md:py-20 items-center text-center justify-center mx-auto">
       <div>
@@ -16,14 +18,9 @@ const AllVehicles = () => {
       </div>
       {/* --------------- Cards --------------- */}
       <div className="w-full grid grid-cols-1 md:px-20 md:grid-cols-3  gap-3">
-        <VehicleCard />
-        <VehicleCard />
-        <VehicleCard />
-        <VehicleCard />
-        <VehicleCard />
-        <VehicleCard />
-        <VehicleCard />
-        <VehicleCard />
+        {data.map((vechicle) => (
+          <VehicleCard key={vechicle._id} vechicle={vechicle} />
+        ))}
       </div>
     </section>
   );

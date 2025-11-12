@@ -117,6 +117,9 @@ const Login = () => {
             Login
           </Button>
         </form>
+        <Link to='/auth/forget'>
+          <p className=" mt-3 dark:text-white">Forget Password?</p>
+        </Link>
 
         {/* ------------------------------------------- Another Buttons ------------------------------------------- */}
 

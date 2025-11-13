@@ -4,9 +4,9 @@ import whiteCar from "../assets/icons/white-car.svg";
 import Button from "./Button";
 import LocationIcon from "../assets/icons/LocationIcon";
 import { Link } from "react-router";
-const VehicleCard = ({ vechicle }) => {
+const VehicleCard = ({ vehicle }) => {
   const { _id, name, categories, price, image, location, availability } =
-    vechicle;
+    vehicle;
   return (
     <Link to={`/vehicle-details/${_id}`}>
       <div
@@ -25,9 +25,10 @@ const VehicleCard = ({ vechicle }) => {
             </p>
           </div>
           {/* Status */}
-          <div className="flex px-4 bg-[#d18b0927] justify-center rounded-full py-2 items-center gap-2">
-            <div className="p-1.5 bg-[#D18B09] w-fit h-fit rounded-full"></div>
-            <p className="text-[#D18B09] font-medium">{availability}</p>
+          <div className="flex px-4 bg-[#0000000b] dark:bg-[#ffffff0b] justify-center rounded-full py-2 items-center gap-2">
+            <p className="text-[#000000] dark:text-[#ffffff] font-medium">
+              {availability}
+            </p>
           </div>
         </div>
         {/* Price */}
@@ -39,7 +40,7 @@ const VehicleCard = ({ vechicle }) => {
         </div>
         {/* Car Image */}
         <div className="relative flex justify-endh-20">
-          <img className="h-35" src={image || car} alt="" />
+          <img className="h-60" src={image || car} alt="" />
           <div className="w-full absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-white to-transparent dark:from-[#1D1F29]"></div>
         </div>
         {/* Button and Loaction */}

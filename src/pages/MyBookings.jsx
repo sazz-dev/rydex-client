@@ -10,7 +10,7 @@ const MyBookings = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-bookings?email=${user.email}`)
+    fetch(`https://rydex-server-two.vercel.app/my-bookings?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setVechicles(data);

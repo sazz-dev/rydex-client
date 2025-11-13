@@ -12,6 +12,7 @@ import MyVehicles from "../pages/MyVehicles";
 import VehiclesDetails from "../pages/VehiclesDetails";
 import PrivateRoute from "../provider/PrivateRoute";
 import Error from "../pages/Error";
+import UpdateVechicle from "../pages/UpdateVechicle";
 
 const router = createBrowserRouter([
   {
@@ -21,12 +22,12 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/vehicles"),
+        loader: () => fetch("https://rydex-server-two.vercel.app/latest-vehicles"),
       },
       {
         path: "/all-vehicles",
         element: <AllVehicles />,
-        loader: () => fetch("http://localhost:3000/vehicles"),
+        loader: () => fetch("https://rydex-server-two.vercel.app/vehicles"),
       },
       {
         path: "/add-vehicle",
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/vehicles/${params.id}`),
+          fetch(`https://rydex-server-two.vercel.app/vehicles/${params.id}`),
       },
       {
         path: "/my-bookings",
@@ -61,6 +62,16 @@ const router = createBrowserRouter([
             <MyVehicles />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/update-vehicle/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateVechicle />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://rydex-server-two.vercel.app/vehicles/${params.id}`),
       },
       {
         path: "/*",

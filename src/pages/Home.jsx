@@ -63,8 +63,8 @@ const Home = () => {
         </div>
         {/* --------------- Cards --------------- */}
         <div className="w-full grid grid-cols-1 md:px-20 lg:grid-cols-3  md:grid-cols-2 gap-3">
-          {data.map((vechicle) => (
-            <VehicleCard key={vechicle._id} vechicle={vechicle} />
+          {data.map((vehicle) => (
+            <VehicleCard key={vehicle._id} vehicle={vehicle} />
           ))}
         </div>
       </section>
@@ -132,7 +132,6 @@ const Home = () => {
         </div>
       </section>
       {/* Hook Action Visitor */}
-      <section></section>
       <ActionCard />
     </>
   );

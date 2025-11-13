@@ -7,9 +7,11 @@ import { CgProfile } from "react-icons/cg";
 import whiteCar from "../assets/icons/white-car.svg";
 import { FaDollarSign, FaEdit } from "react-icons/fa";
 import { AuthContext } from "../provider/AuthProvider";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const AddVehicle = () => {
+  const navigate = useNavigate();
   const { user } = use(AuthContext);
 
   const handleSubmit = (e) => {
@@ -29,7 +31,7 @@ const AddVehicle = () => {
       created_at: new Date(),
     };
 
-    fetch("http://localhost:3000/vehicles", {
+    fetch("https://rydex-server-two.vercel.app/vehicles", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,6 +41,7 @@ const AddVehicle = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("Vehicle Added");
+        navigate("/add-vehicle");
         console.log(data);
       })
       .catch((err) => {
@@ -59,10 +62,7 @@ const AddVehicle = () => {
       <div className="lg:w-8/12 flex flex-col md:flex-row gap-6 items-start justify-between">
         {/* ------------------------ Form ------------------------ */}
         <div className="w-full bg-white p-8 px-8 dark:bg-[#1D1F29] rounded-4xl ">
-          <form
-            onSubmit={handleSubmit}
-            className="w-full flex flex-col gap-4"
-          >
+          <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
             {/* ------------------------------ Vehicle Data Field  ------------------------------ */}
 
             <div className="grid gap-4 grid-cols-1 md:grid-cols-2">

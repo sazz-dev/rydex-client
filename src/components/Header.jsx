@@ -8,6 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { FiLogOut } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const { user, logOut } = use(AuthContext);
@@ -61,7 +62,7 @@ const Header = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        alert("Sign-out successful");
+        toast.success("Sign-out successful");
       })
       .catch((error) => {
         console.log(error);
@@ -125,7 +126,7 @@ const Header = () => {
             >
               <div className="rounded-full">
                 <img
-                  className="rounded-full w-10 h-10 object-cover"
+                  className="rounded-full w-10 h-10 cursor-pointer object-cover"
                   src={user.photoURL}
                   referrerPolicy="no-referrer"
                   alt="user"

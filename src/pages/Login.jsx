@@ -32,6 +32,7 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.errorCode;
         setError(errorCode);
+        alert("Something Wrong");
       });
   };
 
@@ -90,7 +91,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full  placeholder-[#97979D] text-white focus:outline-none focus:border-[#242424]"
+              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full  placeholder-[#97979D] dark:text-white focus:outline-none focus:border-[#242424]"
               type="email"
               placeholder="Email Address"
             />
@@ -105,7 +106,7 @@ const Login = () => {
             <input
               name="password"
               required
-              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full  placeholder-[#97979D] text-white focus:outline-none focus:border-[#242424]"
+              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full  placeholder-[#97979D] dark:text-white focus:outline-none focus:border-[#242424]"
               type="password"
               placeholder="Password"
             />
@@ -117,7 +118,7 @@ const Login = () => {
             Login
           </Button>
         </form>
-        <Link to='/auth/forget'>
+        <Link to="/auth/forget">
           <p className=" mt-3 dark:text-white">Forget Password?</p>
         </Link>
 

@@ -2,10 +2,10 @@ import whiteCar from "../assets/icons/white-car.svg";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { use } from "react";
-import toast from "react-hot-toast";
 import { FaLocationDot } from "react-icons/fa6";
-import { FaCarSide } from "react-icons/fa";
-import { MdEventAvailable } from "react-icons/md";
+import { FaCalendarCheck, FaCarSide } from "react-icons/fa";
+import car from "../assets/car.webp";
+import { toast } from "react-toastify";
 
 const VehiclesDetails = () => {
   const { user } = use(AuthContext);
@@ -28,7 +28,7 @@ const VehiclesDetails = () => {
   } = VehicleDetails;
 
   const handleBook = () => {
-    fetch(`http://localhost:3000/my-bookings`, {
+    fetch(`https://rydex-server-two.vercel.app/my-bookings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,11 +37,12 @@ const VehiclesDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        toast.success("Vehicle Booked");
         console.log(data);
-        toast.success("Booked");
       })
       .catch((err) => {
         console.log(err);
+        toast.error("Booked Already");
       });
   };
 
@@ -71,10 +72,10 @@ const VehiclesDetails = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <MdEventAvailable size={25} />
+              <FaCalendarCheck size={25} />
               <span>
-                Added on{created_at}
-                <strong className="text-gray-900 dark:text-white">{}</strong>
+                Added on
+                <strong className="text-gray-900 ml-2 dark:text-white">{created_at}</strong>
               </span>
             </div>
           </div>
@@ -122,12 +123,12 @@ const VehiclesDetails = () => {
         {/* image area */}
 
         <div className="flex flex-col items-end gap-8">
-          <div className=" w-fit flex px-4 bg-[#d18b0927] justify-center rounded-full py-2 items-center gap-2">
-            <div className="p-1.5 bg-[#D18B09] w-fit h-fit rounded-full"></div>
-            <p className="text-[#D18B09] font-medium">{availability}</p>
+          <div className=" w-fit flex px-4 bg-[#0000000b] dark:bg-[#ffffff0b] justify-center rounded-full py-2 items-center gap-2">
+            <div className="p-1.5 bg-[#000000] dark:bg-[#ffffff] w-fit h-fit rounded-full"></div>
+            <p className="text-[#000000] dark:text-[#ffffff] font-medium">{availability}</p>
           </div>
           <img
-            src={image}
+            src={image || car}
             alt={""}
             className="w-full object-contain rounded-md max-h-60 mx-auto"
           />

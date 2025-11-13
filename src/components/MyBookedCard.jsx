@@ -1,13 +1,12 @@
 import React from "react";
-import car from "../assets/car.webp";
 import Button from "./Button";
 import LocationIcon from "../assets/icons/LocationIcon";
 import { Link } from "react-router";
 const MyBookedCard = ({ vehicle }) => {
   const { _id, name, categories, price, image, location } =
     vehicle;
+    
   return (
-    <Link to={`/vehicle-details/${_id}`}>
       <div
         className="w-80 gap-6 flex flex-col justify-center items-center rounded-3xl bg-white dark:bg-[#1D1F29] px-6 md:px-8 pt-8 pb-6
       
@@ -42,7 +41,6 @@ const MyBookedCard = ({ vehicle }) => {
           </div>
         </div>
       </div>
-    </Link>
   );
 };
 

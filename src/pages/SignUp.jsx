@@ -6,11 +6,10 @@ import { HiOutlineMail } from "react-icons/hi";
 import { LuLink, LuUserRound } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../provider/AuthProvider";
-import useTheme from "../Hooks/useTheme";
 import useTitle from "../Hooks/useTitle";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
-  const { isDark } = useTheme();
   useTitle("Sign Up");
   const { googleLogIn, createUser, setUser, updateUser } =
     useContext(AuthContext);
@@ -31,7 +30,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        alert("Google Login Successful");
+        toast.success("Google Login Successful");
         navigate("/");
       })
       .catch((error) => {
@@ -67,7 +66,7 @@ const SignUp = () => {
       // set user once after update
       setUser({ ...user, displayName: name, photoURL: photo || "" });
 
-      alert("Account created successfully");
+      toast.success("Account created successfully");
       navigate(fromPath, { replace: true });
     } catch (error) {
       alert(error?.message || "Registration failed");
@@ -115,7 +114,7 @@ const SignUp = () => {
             <input
               name="name"
               required
-              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full placeholder-[#97979D] text-white focus:outline-none focus:border-[#242424]"
+              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full placeholder-[#97979D] dark:text-white focus:outline-none focus:border-[#242424]"
               type="text"
               placeholder="Full Name"
             />
@@ -130,7 +129,7 @@ const SignUp = () => {
             <input
               name="photo"
               /* consider making optional if you want */
-              className="w-full border-2 dark:border-[#2D2D3E] border-[#EDEDED]  px-12 py-3 rounded-full placeholder-[#97979D] text-white focus:outline-none focus:border-[#242424]"
+              className="w-full border-2 dark:border-[#2D2D3E] border-[#EDEDED]  px-12 py-3 rounded-full placeholder-[#97979D] dark:text-white focus:outline-none focus:border-[#242424]"
               type="text"
               placeholder="Photo URL (optional)"
             />
@@ -145,7 +144,7 @@ const SignUp = () => {
             <input
               name="email"
               required
-              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full  placeholder-[#97979D] text-white focus:outline-none focus:border-[#242424]"
+              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full  placeholder-[#97979D] dark:text-white focus:outline-none focus:border-[#242424]"
               type="email"
               placeholder="Email Address"
             />
@@ -160,7 +159,7 @@ const SignUp = () => {
             <input
               name="password"
               required
-              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full  placeholder-[#97979D] text-white focus:outline-none focus:border-[#242424]"
+              className="w-full border-2 border-[#EDEDED] dark:border-[#2D2D3E] px-12 py-3 rounded-full  placeholder-[#97979D] dark:text-white focus:outline-none focus:border-[#242424]"
               type="password"
               placeholder="Password"
             />

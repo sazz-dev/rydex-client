@@ -70,7 +70,7 @@ const MyVehicles = () => {
         </p>
       </div>
       {/* --------------- Cards --------------- */}
-      <div className="w-full grid grid-cols-1 md:px-20 md:grid-cols-3  gap-3">
+      <div className="w-full grid grid-cols-1 lg:px-20 md:grid-cols-2 lg:grid-cols-3  gap-3">
         {vehicles.map((vehicle) => (
           <MyVehicleCard
             key={vehicle._id}

@@ -4,6 +4,7 @@ import VehicleCard from "../components/VehicleCard";
 import { useLoaderData } from "react-router";
 import Loading from "../components/Loading";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { FiSearch } from "react-icons/fi";
 
 const AllVehicles = () => {
   const data = useLoaderData();
@@ -32,7 +33,9 @@ const AllVehicles = () => {
     setLoading(true);
     setcategory(categoryValue);
 
-    fetch(`https://rydex-server-two.vercel.app/category?category=${categoryValue}`)
+    fetch(
+      `https://rydex-server-two.vercel.app/category?category=${categoryValue}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setVehicles(data);
@@ -51,7 +54,6 @@ const AllVehicles = () => {
         setVehicles(data);
         setLoading(false);
       });
-      
   };
   if (loading) {
     return <Loading />;
@@ -68,17 +70,18 @@ const AllVehicles = () => {
         </p>
       </div>
       {/* --------------- Cards --------------- */}
-      <div className="w-full  items-center md:w-10/12 flex flex-col gap-5">
+      <div className="w-full  items-center lg:w-10/12 flex flex-col gap-5">
         {/* Filter */}
         <div className="w-full flex flex-col gap-5 md:flex-row justify-between">
-          <form onSubmit={handleSearch}>
+          <form className="relative" onSubmit={handleSearch}>
             <input
               type="search"
               name="search"
               id=""
               placeholder="Search by vehicle's name"
-              className="w-full md:w-80 border-2 bg-white dark:bg-[#1D1F29] border-[#EDEDED] dark:border-[#2D2D3E] px-4 py-3 rounded-full font-light placeholder-[#97979D] dark:text-white focus:outline-none dark:focus:border-[#4A5565]  focus:border-[#2f0e0e]"
+              className="pl-11 w-full md:w-80 border-2 bg-white dark:bg-[#1D1F29] border-[#EDEDED] dark:border-[#2D2D3E] px-4 py-3 rounded-full font-light placeholder-[#97979D] dark:text-white focus:outline-none dark:focus:border-[#4A5565]  focus:border-[#2f0e0e]"
             />
+            <FiSearch size={20} className="top-4 left-5 absolute to-0%" />
           </form>
           <div className="flex gap-3">
             {/* Sort by category */}
@@ -123,7 +126,7 @@ const AllVehicles = () => {
           </div>
         </div>
 
-        <div className="w-full grid grid-cols-1  md:grid-cols-3  gap-3">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3">
           {vehicles.map((vehicle) => (
             <VehicleCard key={vehicle._id} vehicle={vehicle} />
           ))}

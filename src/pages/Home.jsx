@@ -15,6 +15,7 @@ import ElectricIcon from "../components/ElectricIcon";
 import VanIcon from "../assets/icons/VanIcon";
 import { useLoaderData } from "react-router";
 import { Link } from "react-router";
+import { motion } from "motion/react";
 
 const Home = () => {
   const data = useLoaderData();
@@ -24,14 +25,24 @@ const Home = () => {
       <section className="md:h-[603px] md:rounded-4xl px-4 md:px-14 py-8 flex items-center container text-white mx-auto bg-[url('./assets/hero-car.jpg')] bg-cover bg-center">
         {/* ---------------Card --------------- */}
         <div className="relative flex flex-col mx-auto md:mx-0 gap-8 backdrop-blur-xl bg-[#0000002c] border-8 border-[#ffffff17] md:p-20 p-8 rounded-[52px] md:rounded-[92px]">
-          <h2 className="font-bold  text-5xl md:text-7xl ">
+          <motion.h2
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="font-bold  text-5xl md:text-7xl "
+          >
             Find<span className="text-red-600">,</span> Book <br></br> & Ride
             <span className="text-red-600">.</span>
-          </h2>
-          <p className="font-light text-lg md:text-xl">
+          </motion.h2>
+          <motion.p
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="font-light text-lg md:text-xl"
+          >
             Explore a wide range of vehicles with <br />
             Rydex your trusted trip companion.
-          </p>
+          </motion.p>
           <Link to="/all-vehicles">
             <Button className="py-4 dark:bg-white px-6 w-fit bg-white">
               <img src={carBtn} alt="" />{" "}
@@ -52,7 +63,12 @@ const Home = () => {
 
       {/* --------------- Recent Vehicles --------------- */}
 
-      <section className="px-4 container flex flex-col gap-12 py-10 md:py-20 items-center text-center justify-center mx-auto">
+      <motion.section
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        className="px-4 container flex flex-col gap-12 py-10 md:py-20 items-center text-center justify-center mx-auto"
+      >
         <div>
           <h4 className="md:text-5xl text-3xl dark:text-white">
             Recent Vehicles
@@ -67,7 +83,7 @@ const Home = () => {
             <VehicleCard key={vehicle._id} vehicle={vehicle} />
           ))}
         </div>
-      </section>
+      </motion.section>
       {/* --------------- Top Categories --------------- */}
 
       <section className="px-4 container flex flex-col gap-12 py-10 md:py-20 items-center text-center justify-center mx-auto">
@@ -107,8 +123,16 @@ const Home = () => {
 
       {/* Rydex About */}
       <section className="md:w-8/12 px-4 container flex md:flex-row flex-col gap-12 py-10 md:py-40 items-center text-center md:text-left  md:justify-start justify-center mx-auto">
-        <img className="w-50 block dark:hidden md:w-100" src={logoIconLight} alt="" />
-        <img className="w-50 hidden dark:block md:w-100" src={logoIconDark} alt="" />
+        <img
+          className="w-50 block dark:hidden md:w-100"
+          src={logoIconLight}
+          alt=""
+        />
+        <img
+          className="w-50 hidden dark:block md:w-100"
+          src={logoIconDark}
+          alt=""
+        />
         <div className="items-center md:items-start flex flex-col gap-6">
           <h3 className="font-medium dark:text-white md:text-6xl text-4xl">
             Rydex Cab <br />

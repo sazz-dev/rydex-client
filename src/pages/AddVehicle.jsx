@@ -58,10 +58,10 @@ const AddVehicle = () => {
 
       <div className="lg:w-8/12 flex flex-col md:flex-row gap-6 items-start justify-between">
         {/* ------------------------ Form ------------------------ */}
-        <div className="w-full bg-white p-5  dark:bg-[#1D1F29] rounded-4xl ">
+        <div className="w-full bg-white p-8 px-8 dark:bg-[#1D1F29] rounded-4xl ">
           <form
             onSubmit={handleSubmit}
-            className="w-full flex flex-col gap-4 mt-6"
+            className="w-full flex flex-col gap-4"
           >
             {/* ------------------------------ Vehicle Data Field  ------------------------------ */}
 

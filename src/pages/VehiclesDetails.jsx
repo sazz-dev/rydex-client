@@ -1,9 +1,11 @@
-import CarImg from "../assets/car.webp";
 import whiteCar from "../assets/icons/white-car.svg";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { use } from "react";
 import toast from "react-hot-toast";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaCarSide } from "react-icons/fa";
+import { MdEventAvailable } from "react-icons/md";
 
 const VehiclesDetails = () => {
   const { user } = use(AuthContext);
@@ -36,7 +38,7 @@ const VehiclesDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success('Booked')
+        toast.success("Booked");
       })
       .catch((err) => {
         console.log(err);
@@ -58,70 +60,18 @@ const VehiclesDetails = () => {
           <div className="mt-4 flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-300">
             <div className="flex items-center gap-2">
               {/* car icon (simple) */}
-              <svg
-                className="w-5 h-5 text-gray-600 dark:text-gray-300"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden
-              >
-                <path
-                  d="M3 13h18"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M7 10a3 3 0 100-6 3 3 0 000 6zM17 10a3 3 0 100-6 3 3 0 000 6z"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <FaCarSide size={30} />
+
               <span>{categories}</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-gray-600 dark:text-gray-300"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle cx="12" cy="9" r="2" fill="currentColor" />
-              </svg>
+              <FaLocationDot size={25} />
               <span>{location}</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5 text-gray-600 dark:text-gray-300"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden
-              >
-                <path
-                  d="M12 8v4l3 3"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="9"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                />
-              </svg>
+              <MdEventAvailable size={25} />
               <span>
                 Added on{created_at}
                 <strong className="text-gray-900 dark:text-white">{}</strong>

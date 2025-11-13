@@ -10,7 +10,7 @@ const MyVehicleCard = ({ vehicle, hanldeDelete }) => {
 
   return (
     <div
-      className="w-full gap-6 flex flex-col items-center rounded-3xl bg-white dark:bg-[#1D1F29] px-6 md:px-8 pt-8 pb-6
+      className="w-full gap-6 flex flex-col items-center rounded-3xl bg-white dark:bg-[#1D1F29] px-6 lg:px-8 pt-8 pb-6
       
       hover:shadow-[0_10px_40px_rgba(0,0,0,0.03)] 
       hover:-translate-y-2 hover:scale-[1.02] 
@@ -48,9 +48,9 @@ const MyVehicleCard = ({ vehicle, hanldeDelete }) => {
           <LocationIcon className="w-5 h-5 text-[#141B34] dark:text-white" />
           <p className="dark:text-white text-[#141B34]">{location}</p>
         </div>
-        <div className="w-full items-center justify-center gap-4 flex">
+        <div className="w-full items-center justify-center gap-2 lg:gap-4 flex">
           <Link to={`/vehicle-details/${_id}`}>
-            <Button variant="primary">View Details</Button>
+            <Button variant="primary">View</Button>
           </Link>
 
           <Link to={`/update-vehicle/${_id}`}>

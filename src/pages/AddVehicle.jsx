@@ -162,6 +162,7 @@ const AddVehicle = () => {
                   />
                   <input
                     name="ownerName"
+                    defaultValue={user.displayName}
                     type="text"
                     placeholder="Owner Name"
                     required
@@ -188,7 +189,7 @@ const AddVehicle = () => {
               </div>
 
               <p className="dark:text-[#ffffff5a] text-[#00000088]">
-                Auto-filled from your account
+                Auto-filled, you can change the name
               </p>
             </div>
 

@@ -1,9 +1,11 @@
 import React from 'react';
+import PuffLoader from "react-spinners/PuffLoader";
+
 
 const Loading = () => {
     return (
-        <div>
-            <p>Loading....</p>
+        <div className='container mx-auto py-20 justify-center flex items-center'>
+           <PuffLoader />
         </div>
     );
 };

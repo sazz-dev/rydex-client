@@ -5,7 +5,8 @@ import rydexLogo from "../assets/icons/logo-icon.svg";
 import VehicleCard from "../components/VehicleCard";
 import MouseIcon from "../assets/icons/MouseIcon";
 import SedanIcon from "../assets/icons/SedanIcon";
-import logoIcon from "../assets/logo-img.png";
+import logoIconLight from "../assets/logo-img.png";
+import logoIconDark from "../assets/logo-img-dark.png";
 import TopCard from "../components/TopCard";
 import whiteCar from "../assets/icons/white-car.svg";
 import ActionCard from "../components/ActionCard";
@@ -13,6 +14,7 @@ import SubIcon from "../assets/icons/SubIcon";
 import ElectricIcon from "../components/ElectricIcon";
 import VanIcon from "../assets/icons/VanIcon";
 import { useLoaderData } from "react-router";
+import { Link } from "react-router";
 
 const Home = () => {
   const data = useLoaderData();
@@ -30,10 +32,12 @@ const Home = () => {
             Explore a wide range of vehicles with <br />
             Rydex your trusted trip companion.
           </p>
-          <Button className="py-4 px-6 w-fit bg-white">
-            <img src={carBtn} alt="" />{" "}
-            <span className=" text-black">All Vehicles</span>
-          </Button>
+          <Link to="/all-vehicles">
+            <Button className="py-4 dark:bg-white px-6 w-fit bg-white">
+              <img src={carBtn} alt="" />{" "}
+              <span className=" text-black">All Vehicles</span>
+            </Button>
+          </Link>
           <img
             className="absolute md:bottom-8 md:right-8  bottom-4 right-2 w-20 md:w-30"
             src={rydexLogo}
@@ -102,18 +106,19 @@ const Home = () => {
       </section>
 
       {/* Rydex About */}
-      <section className="md:w-8/12 px-4 container flex md:flex-row flex-col gap-12 py-10 md:py-20 items-center text-center md:text-left  md:justify-start justify-center mx-auto">
-        <img className="w-50 md:w-100" src={logoIcon} alt="" />
+      <section className="md:w-8/12 px-4 container flex md:flex-row flex-col gap-12 py-10 md:py-40 items-center text-center md:text-left  md:justify-start justify-center mx-auto">
+        <img className="w-50 block dark:hidden md:w-100" src={logoIconLight} alt="" />
+        <img className="w-50 hidden dark:block md:w-100" src={logoIconDark} alt="" />
         <div className="items-center md:items-start flex flex-col gap-6">
-          <h3 className="font-medium md:text-6xl text-4xl">
+          <h3 className="font-medium dark:text-white md:text-6xl text-4xl">
             Rydex Cab <br />
             Services.
           </h3>
-          <p className="text-xl font-light">
+          <p className="text-xl dark:text-[#ffffff79] font-light">
             Our Vision is to exceed our customer’s expectations by providing
             professional on-time ground transportation solutions,{" "}
           </p>
-          <ul className=" grid grid-cols-2">
+          <ul className="dark:text-[#ffffff79] text-xl font-light grid grid-cols-2">
             <li>Outstation Cabs</li>
             <li>Local Hourly Car Rental</li>
             <li>One Way Cab</li>

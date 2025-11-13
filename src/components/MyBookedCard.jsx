@@ -3,9 +3,11 @@ import car from "../assets/car.webp";
 import Button from "./Button";
 import LocationIcon from "../assets/icons/LocationIcon";
 import { Link } from "react-router";
-const MyBookedCard = () => {
+const MyBookedCard = ({ vehicle }) => {
+  const { _id, name, categories, price, image, location } =
+    vehicle;
   return (
-    <Link to="/vehicle-details">
+    <Link to={`/vehicle-details/${_id}`}>
       <div
         className="w-80 gap-6 flex flex-col justify-center items-center rounded-3xl bg-white dark:bg-[#1D1F29] px-6 md:px-8 pt-8 pb-6
       
@@ -14,21 +16,21 @@ const MyBookedCard = () => {
       transition-all duration-500 ease-in-out-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer"
       >
         <div className="text-center">
-          <h6 className="text-xl font-medium dark:text-white">
-            Toyota Corolla
-          </h6>
+          <h6 className="text-xl font-medium dark:text-white">{name}</h6>
           <p className="text-lg font-light dark:text-[#ffffff88] text-[#0000006c]">
-            Sedan
+            {categories}
           </p>
         </div>
         {/* Price */}
         <div className="flex gap-1 justify-center items-end">
-          <span className="text-3xl dark:text-white font-semibold">$29 </span>
+          <span className="text-3xl dark:text-white font-semibold">
+            ${price}{" "}
+          </span>
           <p className="text-[#0000006c] dark:text-[#ffffff6c] text-xl">/day</p>
         </div>
         {/* Car Image */}
         <div className="relative flex justify-endh-20">
-          <img className="h-35" src={car} alt="" />
+          <img className="h-35" src={image} alt="" />
           <div className="w-full absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-white to-transparent dark:from-[#1D1F29]"></div>
         </div>
         {/* Button and Loaction */}
@@ -36,7 +38,7 @@ const MyBookedCard = () => {
           {/* Location */}
           <div className="flex items-center gap-2">
             <LocationIcon className="w-5 h-5 text-[#141B34] dark:text-white" />
-            <p className="dark:text-white text-[#141B34]">Dhaka, Bangladesh</p>
+            <p className="dark:text-white text-[#141B34]">{location}</p>
           </div>
         </div>
       </div>

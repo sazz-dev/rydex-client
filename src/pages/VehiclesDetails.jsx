@@ -2,8 +2,11 @@ import CarImg from "../assets/car.webp";
 import whiteCar from "../assets/icons/white-car.svg";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import { use } from "react";
+import toast from "react-hot-toast";
 
 const VehiclesDetails = () => {
+  const { user } = use(AuthContext);
   const data = useLoaderData();
   const VehicleDetails = data.result;
 
@@ -23,7 +26,21 @@ const VehiclesDetails = () => {
   } = VehicleDetails;
 
   const handleBook = () => {
-    window.alert("Book clicked");
+    fetch(`http://localhost:3000/my-bookings`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...VehicleDetails, booked_by: user.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success('Booked')
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (

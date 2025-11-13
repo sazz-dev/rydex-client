@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import { Link } from "react-router";
 import MyVehicleCard from "../components/MyVehicleCard";
 import { AuthContext } from "../provider/AuthProvider";
+import Loading from "../components/Loading";
 
 const MyVehicles = () => {
   const { user } = use(AuthContext);
@@ -18,7 +19,7 @@ const MyVehicles = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading....</div>;
+    return <Loading/>;
   }
 
   return (

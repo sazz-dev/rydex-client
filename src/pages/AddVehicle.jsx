@@ -59,7 +59,7 @@ const AddVehicle = () => {
         </p>
       </div>
 
-      <div className="lg:w-8/12 flex flex-col md:flex-row gap-6 items-start justify-between">
+      <div className="lg:w-10/12 flex flex-col md:flex-row gap-6 items-start justify-between">
         {/* ------------------------ Form ------------------------ */}
         <div className="w-full bg-white p-8 px-8 dark:bg-[#1D1F29] rounded-4xl ">
           <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
@@ -203,7 +203,7 @@ const AddVehicle = () => {
           </form>
         </div>
         {/* ------------------------ Tips for listing ------------------------ */}
-        <aside className="lg:w-8/12 md:block hidden bg-white dark:bg-[#1D1F29] p-8 flex flex-col gap-12 rounded-4xl">
+        <aside className="lg:w-10/12 lg:block hidden bg-white dark:bg-[#1D1F29] p-8 flex flex-col gap-12 rounded-4xl">
           <div className="flex flex-col gap-3 justify-center items-center">
             <MdTipsAndUpdates className="dark:text-white" size={100} />
             <p className="text-3xl mb-8 dark:text-white">

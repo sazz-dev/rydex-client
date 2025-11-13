@@ -47,7 +47,7 @@ const VehiclesDetails = () => {
   };
 
   return (
-    <section className="px-4 lg:py-12 py-5 flex md:flex-row  flex-col lg:gap-10 md:gap-4 container mx-auto">
+    <section className="px-4 lg:py-12 py-5 flex md:flex-row gap-5 flex-col lg:gap-10 md:gap-4 container mx-auto">
       {/* -------------------------- Left Section -------------------------- */}
       <div className="flex flex-col lg:w-7/10 md:w-3/5  gap-2 ">
         {/* -------------------------- Top Part -------------------------- */}
@@ -75,7 +75,9 @@ const VehiclesDetails = () => {
               <FaCalendarCheck size={25} />
               <span>
                 Added on
-                <strong className="text-gray-900 ml-2 dark:text-white">{created_at}</strong>
+                <strong className="text-gray-900 ml-2 dark:text-white">
+                  {created_at.slice(0, 10)}
+                </strong>
               </span>
             </div>
           </div>
@@ -125,7 +127,9 @@ const VehiclesDetails = () => {
         <div className="flex flex-col items-end gap-8">
           <div className=" w-fit flex px-4 bg-[#0000000b] dark:bg-[#ffffff0b] justify-center rounded-full py-2 items-center gap-2">
             <div className="p-1.5 bg-[#000000] dark:bg-[#ffffff] w-fit h-fit rounded-full"></div>
-            <p className="text-[#000000] dark:text-[#ffffff] font-medium">{availability}</p>
+            <p className="text-[#000000] dark:text-[#ffffff] font-medium">
+              {availability}
+            </p>
           </div>
           <img
             src={image || car}

@@ -60,7 +60,7 @@ const UpdateVechicle = () => {
       </div>
 
       {/* ------------------------ Form ------------------------ */}
-      <div className="w-5/12 bg-white p-8 px-8 dark:bg-[#1D1F29] rounded-4xl ">
+      <div className="lg:w-5/12 bg-white p-8 px-8 dark:bg-[#1D1F29] rounded-4xl ">
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
           {/* ------------------------------ Vehicle Data Field  ------------------------------ */}
 

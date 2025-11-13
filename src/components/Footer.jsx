@@ -91,7 +91,7 @@ export default function Footer() {
           </div>
 
           <div className="order-1 md:order-2">
-            <p className="text-sm text-[#9e9e9e]">Built with care • <span className="text-white">Sazz</span></p>
+            <p className="text-sm text-[#9e9e9e]">Built with care • <span className="text-white"><a href="https://github.com/sazz-dev">Sazz</a></span></p>
           </div>
         </div>
       </div>
